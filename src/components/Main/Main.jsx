@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import BookView from "../BookView/BookView";
+import key from "../../key";
 
 export default function Main() {
   const [books, setBooks] = useState({ items: [] });
   const fetchBooks = () => {
     fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${"areia"}&download=epub&key=${"AIzaSyAGPOz7bGwxISlKQRAZGYPcid-pMQJHvWI"}`
+      `https://www.googleapis.com/books/v1/volumes?q=${"areia"}&download=epub&key=${key}`
     )
       .then((response) => response.json())
       .then((data) => {
