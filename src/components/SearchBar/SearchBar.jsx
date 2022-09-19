@@ -1,6 +1,6 @@
 import { MagnifyingGlass } from "phosphor-react";
-import { useState } from "react";
-import { SearchContext } from '../../contexts/SearchContext'
+import { useState, useEffect, useContext } from "react";
+import { SearchContext } from "../../contexts/SearchContext";
 
 import "./searchBar.scss";
 
@@ -11,7 +11,7 @@ export default function SearchBar() {
 
   useEffect(() => {
     handleChangeSearchTerm(searchInput);
-  }, [searchInput])
+  }, [searchInput]);
 
   const onInputChange = (e) => {
     setSearchInput(e.target.value);
