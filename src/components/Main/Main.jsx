@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import BookView from "../BookView/BookView";
-import key from "../../key";
+import { key } from "../../KEY";
 
 export default function Main() {
   const [books, setBooks] = useState({ items: [] });
-  const fetchBooks = () => {
+
+  useEffect(() => {
     fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${"areia"}&download=epub&key=${key}`
     )
@@ -14,7 +15,7 @@ export default function Main() {
         setBooks(data);
       })
       .catch((err) => console.error(err));
-  };
+  }, []);
   return (
     <div>
       {books.items.map((book, index) => {
