@@ -1,15 +1,26 @@
 import { MagnifyingGlass } from "phosphor-react";
 import { useState } from "react";
+import { SearchContext } from '../contexts/SearchContext';
+
 import "./searchBar.scss";
 
 export default function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+
+  const { handleChangeSearchTerm } = useContext(SearchContext);
+
+  useEffect(() => {
+    handleChangeSearchTerm(searchInput);
+  }, [searchInput])
+
   const onInputChange = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchInput(e.target.value);
   };
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
   };
+
   return (
     <form onSubmit={onSubmitHandler}>
       <label htmlFor="searchBar">
@@ -19,7 +30,7 @@ export default function SearchBar() {
         <input
           type="text"
           id="searchBar"
-          value={searchTerm}
+          value={searchInput}
           name="searchBar"
           onChange={onInputChange}
         />
