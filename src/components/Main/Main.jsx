@@ -8,6 +8,7 @@ export default function Main() {
   return (
     <div>
       {books?.items.map((book) => {
+        console.log(book.volumeInfo.authors[0]);
         return (
           <BookView
             key={book.id}
