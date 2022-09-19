@@ -9,16 +9,13 @@ export default function SearchBar() {
 
   const { handleChangeSearchTerm } = useContext(SearchContext);
 
-  useEffect(() => {
-    handleChangeSearchTerm(searchInput);
-  }, [searchInput]);
-
   const onInputChange = (e) => {
     setSearchInput(e.target.value);
   };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    handleChangeSearchTerm(searchInput);
   };
 
   return (

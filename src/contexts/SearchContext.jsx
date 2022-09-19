@@ -13,21 +13,21 @@ export function SearchContextProvider({ children }) {
   }
 
   useEffect(() => {
-    fetch(
-      `https://www.googleapis.com/books/v1/volumes?${
-        searchTerm ? `q=${searchTerm}&` : ""
-      }download=epub&key=${key}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setBooks(data);
-      })
-      .catch((err) => console.error(err));
+    if (searchTerm) {
+      fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&download=epub&key=${key}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setBooks(data);
+        })
+        .catch((err) => console.error(err));
+    }
   }, [searchTerm]);
 
   return (
-    <SearchContext.Provider value={(books, handleChangeSearchTerm)}>
+    <SearchContext.Provider value={{ books, handleChangeSearchTerm }}>
       {children}
     </SearchContext.Provider>
   );
