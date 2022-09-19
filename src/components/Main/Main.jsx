@@ -1,8 +1,6 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import BookView from "../BookView/BookView";
-import { SearchContext } from '../contexts/SearchContext';
-
-import { key } from "../../KEY";
+import { SearchContext } from '../../contexts/SearchContext';
 
 export default function Main() {
   const { books } = useContext(SearchContext);
