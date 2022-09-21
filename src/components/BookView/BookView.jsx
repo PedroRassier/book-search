@@ -5,16 +5,17 @@ export default function BookView(props) {
   const [icon, setIcon] = useState(false);
 
   return (
-    <article id="Book">
+    <article>
       <header>
-        <img src={props.imgSrc} alt="" />
-        <div id="title">
+        <a href={props.bookLink} target="_blank">
+          <img src={props.imgSrc} alt="" />
+        </a>
+        <div>
           <h1>{props.title}</h1>
           <h3>{props.autor}</h3>
           {icon ? (
             <Star
               onClick={() => setIcon(!icon)}
-              id="starIcon"
               size={32}
               color="#ffb700"
               weight="fill"
@@ -22,7 +23,6 @@ export default function BookView(props) {
           ) : (
             <Star
               onClick={() => setIcon(!icon)}
-              id="starIcon"
               size={32}
               color="#ffb700"
               weight="bold"

@@ -1,5 +1,5 @@
 import { MagnifyingGlass } from "phosphor-react";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { SearchContext } from "../../contexts/SearchContext";
 
 import "./searchBar.scss";
