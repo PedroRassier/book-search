@@ -1,5 +1,5 @@
 import { Star } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./bookView.scss";
 export default function BookView(props) {
   const [icon, setIcon] = useState(false);

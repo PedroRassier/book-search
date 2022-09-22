@@ -4,7 +4,7 @@
   padding: 0 15rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   h1 {
     font-size: 40px;
     color: #f1faee;
@@ -37,5 +37,28 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+/* queries */
+
+@media screen and (max-width: 900px) {
+  .Header {
+    padding: 0 8rem;
+  }
+}
+@media screen and (max-width: 610px) {
+  .Header {
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 380px) {
+  .Header {
+    padding: 0.8rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .Header {
+    padding: 0.5rem;
   }
 }
