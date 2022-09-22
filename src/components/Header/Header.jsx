@@ -1,11 +1,11 @@
-import SearchBar from "../SearchBar/SearchBar";
-import "./header.scss";
+import SearchBar from '../SearchBar/SearchBar';
+import './header.scss';
 
 export default function Header() {
   return (
-    <div className="Header">
+    <header>
       <h1>Book Search</h1>
       <SearchBar />
-    </div>
+    </header>
   );
 }

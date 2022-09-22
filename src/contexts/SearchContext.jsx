@@ -1,11 +1,14 @@
-import { createContext, useState, useEffect } from "react";
+/* eslint-disable no-console */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-no-constructed-context-values */
+import { createContext, useState, useEffect } from 'react';
 
-import { key } from "../KEY";
+import KEY from '../KEY';
 
 export const SearchContext = createContext({});
 
 export function SearchContextProvider({ children }) {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [books, setBooks] = useState(null);
 
   function handleChangeSearchTerm(data) {
@@ -15,11 +18,10 @@ export function SearchContextProvider({ children }) {
   useEffect(() => {
     if (searchTerm) {
       fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&download=epub&key=${key}`
+        `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&download=epub&key=${KEY}`,
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setBooks(data);
         })
         .catch((err) => console.error(err));
